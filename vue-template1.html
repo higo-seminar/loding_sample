@@ -1,0 +1,361 @@
+<html>
+
+<body>
+  <!-- HTML -->
+  <div id="app">
+
+    <head>
+      <link rel="stylesheet" href="css/style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+
+    <!--ローディング中の画面-->
+    <div id="showLoading" class="showLoading">
+      <!--ローディング画面に表示したいgif画像-->
+      <div id="loading">
+        <img src="gif/other4/white.gif">
+      </div>
+    </div>
+    <!--ローディング中の画面設定以上-->
+    <!--ローディング後に表示される画面にid="contents"をつける-->
+
+    <div id="contents">
+      <h1>Loading Sample</h1>
+      
+      <!--tab-->
+      <div class="plays">
+        <img v-bind:src="play" class="base">
+        <p v-if="isActive === '1'"><img :src="pic_round[selected_round]"></p>
+        <p v-else-if="isActive === '2'"><img :src="pic_square[selected_square]"></p>
+        <p v-else-if="isActive === '3'"><img :src="pic_triangle[selected_triangle]"></p>
+        <p v-else-if="isActive === '4'"><img :src="pic_other[selected_other]"></p>
+      </div>
+
+      
+      <div class="vue_radio">
+        <div class="tabs">
+          <input type="radio" id="tab1" name="tab" value="1" v-model="isActive" checked>
+          <label for="tab1" class="tab_style">Round</label>
+
+          <input type="radio" id="tab2" name="tab" value="2" v-model="isActive">
+          <label for="tab2" class="tab_style">Square</label>
+
+          <input type="radio" id="tab3" name="tab" value="3" v-model="isActive">
+          <label for="tab3" class="tab_style">Triangle</label>
+
+          <input type="radio" id="tab4" name="tab" value="4" v-model="isActive">
+          <label for="tab4" class="tab_style">Other</label>
+        </div>
+
+        <div class="contents">
+
+          <div v-if="isActive === '1'">
+            <h2>丸</h2>
+            <div class="img_round">
+              <input type="radio" v-model="picked_round" value="patern1_r" name="r" id="round1" class="patern">
+              <label for="round1">
+                        <img src="gif/round1/black_r_1.gif" width="100px">
+                        </label>
+
+              <input type="radio" v-model="picked_round" value="patern2_r" name="r" id="round2" class="patern">
+              <label for="round2">
+            <img src="gif/round2/black_r_2.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="picked_round" value="patern3_r" name="r" id="round3" class="patern">
+              <label for="round3">
+            <img src="gif/round3/black_r_3.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="picked_round" value="patern4_r" name="r" id="round4" class="patern">
+              <label for="round4">
+            <img src="gif/round4/black_r_4.gif" width="100px">
+            </label>
+
+              <br>
+            </div>
+
+            <div class="select_style">
+              <select v-model="selected_round">
+        <option disabled value="">好きな色をお選びください</option>
+        <option value=0>黒色</option>
+        <option value=1>黄色</option>
+        <option value=2>赤色</option>
+        <option value=3>青色</option>
+        <option value=4>緑色</option>
+        <option value=5>紫色</option>
+      </select>
+              <br>
+            </div>
+
+          </div>
+
+          <div v-else-if="isActive === '2'">
+            <h2>四角</h2>
+            <div class="img_square">
+              <input type="radio" v-model="picked_square" value="patern1_s" name="rm" id="square1" class="patern">
+              <label for="square1">
+            <img src="gif/square1/black_s_1.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="picked_square" value="patern2_s" name="rm" id="square2" class="patern">
+              <label for="square2">
+            <img src="gif/square2/black_s_2.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="picked_square" value="patern3_s" name="rm" id="square3" class="patern">
+              <label for="square3">
+            <img src="gif/square3/black_s_3.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="picked_square" value="patern4_s" name="rm" id="square4" class="patern">
+              <label for="square4">
+            <img src="gif/square4/black_s_4.gif" width="100px">
+            </label>
+
+              <br>
+            </div>
+
+            <div class="select_style">
+              <select v-model="selected_square">
+        <option disabled value="">好きな色をお選びください</option>
+        <option value=0>黒色</option>
+        <option value=1>黄色</option>
+        <option value=2>赤色</option>
+        <option value=3>青色</option>
+        <option value=4>緑色</option>
+        <option value=5>紫色</option>
+      </select>
+              <br>
+            </div>
+
+          </div>
+
+
+          <div v-else-if="isActive === '3'">
+            <h2>三角</h2>
+            <div class="img_triangle">
+              <input type="radio" v-model="piced_triangle" value="patern1_t" name="rh" class="patern" id="triangle1">
+              <label for="triangle1">
+            <img src="gif/triangle1/black_t_1.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="piced_triangle" value="patern2_t" name="rh" class="patern" id="triangle2">
+              <label for="triangle2">
+            <img src="gif/triangle2/black_t_2.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="piced_triangle" value="patern3_t" name="rh" class="patern" id="triangle3">
+              <label for="triangle3">
+            <img src="gif/triangle3/black_t_3.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="piced_triangle" value="patern4_t" name="rh" class="patern" id="triangle4">
+              <label for="triangle4">
+            <img src="gif/triangle4/black_t_4.gif" width="100px">
+            </label>
+
+              <br>
+            </div>
+
+
+            <div class="select_style">
+              <select v-model="selected_triangle">
+        <option disabled value="">好きな色をお選びください</option>
+        <option value=0>黒色</option>
+        <option value=1>黄色</option>
+        <option value=2>赤色</option>
+        <option value=3>青色</option>
+        <option value=4>緑色</option>
+        <option value=5>紫色</option>
+      </select>
+              <br>
+            </div>
+          </div>
+
+
+          <div v-else-if="isActive === '4'">
+            <h2>その他</h2>
+            <div class="img_other">
+              <input type="radio" v-model="picked_other" value="patern1_o" name="reb" class="patern" id="kiritto">
+              <label for="kiritto">
+            <img src="gif/other1/black_o_1.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="picked_other" value="patern2_o" name="reb" class="patern" id="tare">
+              <label for="tare">
+            <img src="gif/other2/black_o_2.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="picked_other" value="patern3_o" name="reb" class="patern" id="syutto">
+              <label for="syutto">
+            <img src="gif/other3/black_o_3.gif" width="100px">
+            </label>
+
+              <input type="radio" v-model="picked_other" value="patern4_o" name="reb" class="patern" id="poya">
+              <label for="poya">
+            <img src="gif/other4/black_o_4.gif" width="100px">
+            </label>
+
+              <br>
+            </div>
+
+            <div class="select_style">
+              <select v-model="selected_other">
+        <option disabled value="">好きな色をお選びください</option>
+        <option value=0>黒色</option>
+        <option value=1>黄色</option>
+        <option value=2>赤色</option>
+        <option value=3>青色</option>
+        <option value=4>緑色</option>
+        <option value=5>紫色</option>
+      </select>
+              <br>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!--contentsのdiv-->
+  </div>
+  <!--  appのdiv-->
+
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data: {
+        isActive: '1',
+
+        tab: 0,
+
+        picked_round: '',
+        selected_round: 0,
+
+        picked_square: '',
+        selected_square: 0,
+
+        piced_triangle: '',
+        selected_triangle: 0,
+
+        picked_other: '',
+        selected_other: 0,
+
+        sel1_round: ['gif/round1/black_r_1.gif', 'gif/round1/yellow_r_1.gif', 'gif/round1/red_r_1.gif', 'gif/round1/blue_r_1.gif', 'gif/round1/green_r_1.gif', 'gif/round1/parple_r_1.gif'],
+        sel2_round: ['gif/round2/black_r_2.gif', 'gif/round2/yellow_r_2.gif', 'gif/round2/red_r_2.gif', 'gif/round2/blue_r_2.gif', 'gif/round2/green_r_2.gif', 'gif/round2/parple_r_2.gif'],
+        sel3_round: ['gif/round3/black_r_3.gif', 'gif/round3/yellow_r_3.gif', 'gif/round3/red_r_3.gif', 'gif/round3/blue_r_3.gif', 'gif/round3/green_r_3.gif', 'gif/round3/parple_r_3.gif'],
+        sel4_round: ['gif/round4/black_r_4.gif', 'gif/round4/yellow_r_4.gif', 'gif/round4/red_r_4.gif', 'gif/round4/blue_r_4.gif', 'gif/round4/green_r_4.gif', 'gif/round4/parple_r_4.gif'],
+
+        sel1_square: ['gif/square1/black_s_1.gif', 'gif/square1/yellow_s_1.gif', 'gif/square1/red_s_1.gif', 'gif/square1/blue_s_1.gif', 'gif/square1/green_s_1.gif', 'gif/square1/parple_s_1.gif'],
+        sel2_square: ['gif/square2/black_s_2.gif', 'gif/square2/yellow_s_2.gif', 'gif/square2/red_s_2.gif', 'gif/square2/blue_s_2.gif', 'gif/square2/green_s_2.gif', 'gif/square2/parple_s_2.gif'],
+        sel3_square: ['gif/square3/black_s_3.gif', 'gif/square3/yellow_s_3.gif', 'gif/square3/red_s_3.gif', 'gif/square3/blue_s_3.gif', 'gif/square3/green_s_3.gif', 'gif/square3/parple_s_3.gif'],
+        sel4_square: ['gif/square4/black_s_4.gif', 'gif/square4/yellow_s_4.gif', 'gif/square4/red_s_4.gif', 'gif/square4/blue_s_4.gif', 'gif/square4/green_s_4.gif', 'gif/square4/parple_s_4.gif'],
+
+        sel1_triangle: ['gif/triangle1/black_t_1.gif', 'gif/triangle1/yellow_t_1.gif', 'gif/triangle1/red_t_1.gif', 'gif/triangle1/blue_t_1.gif', 'gif/triangle1/green_t_1.gif', 'gif/triangle1/parple_t_1.gif'],
+        sel2_triangle: ['gif/triangle2/black_t_2.gif', 'gif/triangle2/yellow_t_2.gif', 'gif/triangle2/red_t_2.gif', 'gif/triangle2/blue_t_2.gif', 'gif/triangle2/green_t_2.gif', 'gif/triangle2/parple_t_2.gif'],
+        sel3_triangle: ['gif/triangle3/black_t_3.gif', 'gif/triangle3/yellow_t_3.gif', 'gif/triangle3/red_t_3.gif', 'gif/triangle3/blue_t_3.gif', 'gif/triangle3/green_t_3.gif', 'gif/triangle3/parple_t_3.gif'],
+        sel4_triangle: ['gif/triangle4/black_t_4.gif', 'gif/triangle4/yellow_t_4.gif', 'gif/triangle4/red_t_4.gif', 'gif/triangle4/blue_t_4.gif', 'gif/triangle4/green_t_4.gif', 'gif/triangle4/parple_t_4.gif'],
+
+        sel1_other: ['gif/other1/black_o_1.gif', 'gif/other1/yellow_o_1.gif', 'gif/other1/red_o_1.gif', 'gif/other1/blue_o_1.gif', 'gif/other1/green_o_1.gif', 'gif/other1/parple_o_1.gif'],
+        sel2_other: ['gif/other2/black_o_2.gif', 'gif/other2/yellow_o_2.gif', 'gif/other2/red_o_2.gif', 'gif/other2/blue_o_2.gif', 'gif/other2/green_o_2.gif', 'gif/other2/parple_o_2.gif'],
+        sel3_other: ['gif/other3/black_o_3.gif', 'gif/other3/yellow_o_3.gif', 'gif/other3/red_o_3.gif', 'gif/other3/blue_o_3.gif', 'gif/other3/green_o_3.gif', 'gif/other3/parple_o_3.gif'],
+        sel4_other: ['gif/other4/black_o_4.gif', 'gif/other4/yellow_o_4.gif', 'gif/other4/red_o_4.gif', 'gif/other4/blue_o_4.gif', 'gif/other4/green_o_4.gif', 'gif/other4/parple_o_4.gif'],
+
+        play: 'gif/base.png',
+      },
+
+      computed: {
+        pic_round: function() {
+          if (this.picked_round === 'patern2_r') {
+            return this.sel2_round;
+          } else if (this.picked_round === 'patern3_r') {
+            return this.sel3_round;
+          } else if (this.picked_round === 'patern4_r') {
+            return this.sel4_round;
+          } else {
+            return this.sel1_round;
+          }
+        },
+
+        pic_square: function() {
+          if (this.picked_square === 'patern2_s') {
+            return this.sel2_square;
+          } else if (this.picked_square === 'patern3_s') {
+            return this.sel3_square;
+          } else if (this.picked_square === 'patern4_s') {
+            return this.sel4_square;
+          } else {
+            return this.sel1_square;
+          }
+        },
+
+        pic_triangle: function() {
+          if (this.piced_triangle === 'patern2_t') {
+            return this.sel2_triangle;
+          } else if (this.piced_triangle === 'patern3_t') {
+            return this.sel3_triangle;
+          } else if (this.piced_triangle === 'patern4_t') {
+            return this.sel4_triangle;
+          } else {
+            return this.sel1_triangle;
+          }
+        },
+
+        pic_other: function() {
+          if (this.picked_other === 'patern2_o') {
+            return this.sel2_other;
+          } else if (this.picked_other === 'patern3_o') {
+            return this.sel3_other;
+          } else if (this.picked_other === 'patern4_o') {
+            return this.sel4_other;
+          } else {
+            return this.sel1_other;
+          }
+        },
+      },
+
+      methods: {
+        changeTab: function(num) {
+          this.tab = num;
+          console.log(this.tab);
+        },
+      }
+    });
+
+  </script>
+
+
+<!--ローディング画面の設定-->
+  <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
+  <script>
+    $(function() {
+      var h = $(window).height();
+      $('#contents').css('display', 'none');
+      $('#showLoading ,#loading').height(h).css('display', 'block');
+    });
+
+    $(window).load(function() {
+      $('#showLoading').delay(900).fadeOut(800);
+      $('#loading').delay(600).fadeOut(300);
+      $('#contents').css('display', 'block');
+    });
+    
+// ロードが遅い場合は下記の「10秒経つとローディング画面がフェードアウトする」設定などを入れる
+//    $(function() {
+//      setTimeout('stopload()', 10000);
+//    });
+//
+//    function stopload() {
+//      $('#contents').css('display', 'block');
+//      $('#showLoading').delay(900).fadeOut(800);
+//      $('#loading').delay(600).fadeOut(300);
+//    }
+  </script>
+
+</body>

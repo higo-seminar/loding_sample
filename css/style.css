@@ -1,0 +1,225 @@
+body {
+  margin: auto;
+  font-family: cursive;
+  background-color: #fff;
+}
+
+
+/*ローディング中の画面設定*/
+
+#showLoading {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #abdbe1;
+  z-index: 1;
+}
+
+#loading {
+  display: none;
+  position: fixed;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/*以上*/
+
+
+/*表示部分*/
+
+.plays {
+  position: relative;
+  text-align: center;
+}
+
+.base {
+  position: relative;
+  margin: 50px;
+}
+
+.plays p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+}
+
+
+/*デコレーション*/
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  color: #494645;
+}
+
+.patern {
+  display: none;
+}
+
+.img_round,
+.img_square,
+.img_triangle,
+.img_other {
+  margin: auto;
+  text-align: center;
+}
+
+label img {
+  margin: 30px;
+}
+
+.img_round input[type="radio"]:checked+label img {
+  background-color: #ecce87;
+}
+
+.img_square input[type="radio"]:checked+label img {
+  background-color: #ecce87;
+}
+
+.img_triangle input[type="radio"]:checked+label img {
+  background-color: #ecce87;
+}
+
+.img_other input[type="radio"]:checked+label img {
+  background-color: #ecce87;
+}
+
+label img:hover {
+  opacity: 0.75;
+  background-color: #abdbe1;
+}
+
+h2 {
+  text-align: center;
+  color: #494645;
+}
+
+
+/*select*/
+
+.select_style {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.select_style select {
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select_style select::-ms-expand {
+  display: none;
+}
+
+.select_style select {
+  position: relative;
+  border-radius: 2px;
+  border-radius: 50px;
+  background-color: #abdbe1;
+}
+
+.select_style select::before {
+  position: absolute;
+  top: 0.8em;
+  right: 0.8em;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #fff;
+  pointer-events: none;
+}
+
+.select_style select {
+  padding: 10px 0px 10px 50%;
+  color: #fff;
+  font-size: 20px;
+}
+
+
+/*tab*/
+
+.vue_radio {
+  margin-top: 50px;
+  padding-bottom: 40px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  margin: 0 auto;
+}
+
+.tab_style {
+  width: calc(100%/4);
+  height: 50px;
+  border-bottom: 3px solid #abdbe1;
+  background-color: #fff6eb;
+  line-height: 50px;
+  font-size: 20px;
+  text-align: center;
+  color: #494645;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tab_style:hover {
+  opacity: 0.75;
+  background-color: #abdbe1;
+  color: #fff;
+}
+
+input[name="tab"] {
+  display: none;
+}
+
+.contents {
+  padding: 40px 40px 0;
+  clear: both;
+  overflow: hidden;
+}
+
+
+/*選択されているタブのスタイルを変える*/
+
+.tabs input:checked+.tab_style {
+  background-color: #ecce87;
+  color: #fff;
+}
+
+
+/*スマホ用*/
+
+@media screen and (max-width: 479px) {
+  .base {
+    max-width: 90%;
+    margin: 30px auto;
+  }
+  .plays p img {
+    max-width: 100%;
+  }
+}
